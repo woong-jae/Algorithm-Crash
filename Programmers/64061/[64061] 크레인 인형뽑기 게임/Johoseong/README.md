@@ -3,7 +3,7 @@
 - stack
 ## Login
 - 바구니는 stack으로 구현
-- 주어진 열을 탐색해서 0이 아닌 최상단 값은 스택에 넣음
+- 주어진 열을 탐색해서 0이 아닌 최상단 값이 있으면 스택 최상단 값과 비교함
 ```python
 if board[row][col - 1] != 0:
     if stack[-1] == board[row][col - 1]:
@@ -14,7 +14,7 @@ if board[row][col - 1] != 0:
     board[row][col - 1] = 0
     break
 ```
-- 스택에 넣을 때 스택 최상단 값이 현재 들어오는 값과 동일하면 answer += 2하고 pop 해줌
+- 스택 최상단 값이 board 값과 동일하면 answer += 2하고 stack pop
 - moves에 따른 열과, 해당 열에서 0이 아닌 최상단 값 찾을 때 이중 for문 사용됨. 시간복잡도 O(N^2)
 
 ## Review
