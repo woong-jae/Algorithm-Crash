@@ -38,7 +38,7 @@ for (let i = 0; i < sumList.length; i++) {
 
 <br />
 
-**시간 복잡도:** O(N)
+**시간 복잡도:** `sort` 메서드를 사용헀기에 **O(NlogN)**
 
 ## :memo: Review
 
