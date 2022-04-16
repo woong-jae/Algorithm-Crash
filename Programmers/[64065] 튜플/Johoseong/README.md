@@ -4,14 +4,13 @@
 ## Logic
 - 먼저 문자열을 쪼개서 집합 별로 ```tuples``` 배열에 담음. 문자열은 제일 바깥 중괄호를 제외하고 ```},{```로 자르면 예쁘게 잘림.
 - ```tuples```를 길이 기준 정렬. 
+- 문자열 -> 정수로 파싱함.
 - 집합들은 튜플의 첫 원소부터 바로 다음 원소를 추가해가며 만들어진 것이므로, 정렬된 ```tuples```를 탐색하면서 ```answer```에 없는 원소는 추가함.
 ```python
-for i in range(len(tuples)):
-    tuple_set = tuples[i].split(',')
-
-    for j in tuple_set:
-        if j not in answer:
-            answer.append(j)
+for s in sets:
+    for i in s:
+        if i not in answer:
+            answer.append(i)
 ```
 - 이 때, 집합 하나 자체는 정렬된게 아니라서 answer에 없는 원소를 for문으로 탐색해야함.
 - 시간복잡도 O(N^3)
