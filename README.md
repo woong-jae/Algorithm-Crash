@@ -17,6 +17,7 @@
 - 질문이 달린다면 무조건 답변 작성
 
 ## 📝 주차별 문제
-||1|2|3|
-|:---:|:---:|:---:|:---:|
+|주차|1|2|3|4|5|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (04.11 ~ 04.17)|[크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)|[튜플](https://programmers.co.kr/learn/courses/30/lessons/64065)||
+|**2주차**<br> (04.25 ~ 05.01)|[키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)|[수식 최대화](https://programmers.co.kr/learn/courses/30/lessons/67257)|[보석 쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258)|[경주로 건설](https://programmers.co.kr/learn/courses/30/lessons/67259)|[동굴 탐험](https://programmers.co.kr/learn/courses/30/lessons/67260)|
