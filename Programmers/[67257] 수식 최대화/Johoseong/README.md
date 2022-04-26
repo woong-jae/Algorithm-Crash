@@ -30,7 +30,7 @@ def calculate(expression, operator):
 
 ```
 
-- 6개 결과에서 절대값 제일 큰 게 answer
+4. 6개 결과에서 절대값 제일 큰 게 answer
 - 우선순위 경우의 수 6, 탐색하는 연산자 수 3이라서 3중 for문이지만 시간 복잡도는 O(N)
 
 ## Review
