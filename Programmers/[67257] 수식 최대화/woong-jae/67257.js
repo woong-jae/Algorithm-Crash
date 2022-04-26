@@ -1,9 +1,9 @@
 function solution(expression) {
     let answer = 0;
     const operand = { "*": 0, "+": 1, "-": 2 };
-    const priorities = getPerm([0, 1, 2]);
+    const priorities = [[0, 1, 2], [1, 0, 2], [1, 2, 0], 
+                        [0, 2, 1], [2, 0, 1], [2, 1, 0]];
 
-    let res = [];
     expression = expression.split("");
     priorities.forEach(priority => {
         let operandStack = [], numStack = [];
@@ -47,20 +47,4 @@ function calc(a, operand, b) {
     if(operand === "*") return a * b;
     if(operand === "+") return a + b;
     return a - b;
-}
-
-function getPerm(elems) {
-    if(elems.length === 1) return [elems];
-    const perms = [];
-    const smallerPerms = getPerm(elems.slice(1));
-        
-    const firstElem = elems[0];
-    smallerPerms.forEach(perm => {
-        for(let positionIndex = 0; positionIndex <= perm.length; positionIndex++) {
-            const prefix = perm.slice(0, positionIndex);
-            const suffix = perm.slice(positionIndex);
-            perms.push(prefix.concat([firstElem], suffix));
-        }
-    });
-    return perms;
 }
