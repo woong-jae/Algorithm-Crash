@@ -8,7 +8,7 @@ def operation(a, b, o):
     return (a - b)
 
 def calculate(expression, operator):
-    flag = 0
+    flag = 0 # flag: 연산자 만남 -> 앞, 뒤 정수 a b로 연산 -> 그 다음거는 이미 연산 한 b임 -> flag 통해서 stack에 안넣음
     for o in operator:
         stack = []
         for i, p in enumerate(expression):
