@@ -1,8 +1,8 @@
 function solution(board) {
-  const size = board.length;
-  // 우, 하, 좌, 상
-  const dx = [0, 1, 0, -1];
-  const dy = [1, 0, -1, 0];
+  const size = board.length; 
+  // 상, 우, 하, 좌
+  const dx = [-1, 0, 1, 0];
+  const dy = [0, 1, 0, -1];
 
   const visited = new Array(size).fill(null)
     .map((_) => new Array(size).fill(0));
