@@ -1,38 +1,39 @@
 # [67257] 수식 최대화
 
 ## Algorithm
-- 문자열
+- 순열
 
 ## Logic
 
-**이전 버전**
 ```java
-while(!list.isEmpty()) {
-    int[] tmp = Arrays.stream(list.get(0).replace(" ","").split(",")).mapToInt(Integer::parseInt).toArray();
-    
-    for (int i : tmp)
-        if (!answer.contains(i)) answer.add(i);
-    
-    list.remove(0);
+private void compute(int n) {
+    ArrayList<Long> numbers = new ArrayList<>(nums);
+    StringBuilder tmpOps = new StringBuilder(operands);
+
+    for (char p : perm) {
+        int idx = tmpOps.indexOf(String.valueOf(p));
+        while(idx != -1) {
+            long n1 = numbers.get(idx);
+            long n2 = numbers.get(idx+1);
+
+            numbers.set(idx, calculator(n1,n2,p));
+            numbers.remove(idx+1);
+            tmpOps.deleteCharAt(idx);
+
+            idx = tmpOps.indexOf(String.valueOf(p));
+        }
+    }
+
+    long sum = Math.abs(numbers.get(0));
+    if (answer < sum) answer = sum;
 }
 ```
-- 각 요소별 개수 기준으로 정렬하고, 첫 번째 요소의 값을 튜플의 첫 요소로 삽입한다.
-- 이후 정렬된 배열을 순차적으로 돌면서, 이미 튜플에 넣은 값이 아닌 값이 나오면 튜플에 삽입하고, 이를 반복하며 튜플을 완성한다.
 
-**새로운 버전**
-```java
-Pattern pattern = Pattern.compile("\\d+");
-Matcher matcher = pattern.matcher(s);
+- 수식의 숫자들을 저장하고 있는 `nums` 을 복사한 `numbers` 와 연산자들을 순서대로 저장하는 `operands` 를 복사한 `tmpOps` 를 사용한다.
+  - 이후 계산 시 숫자와 연산자를 배열에서 삭제하기 위해 임시 저장소를 사용한다.
+- 우선 순위대로 연산자를 저장한 `perm` 을 탐색하면서, 해당 연산자의 위치를 기준으로 숫자들을 계산하고, 대치한 후, 삭제한다.
 
-while(matcher.find()) {
-    int num = Integer.parseInt(matcher.group(0));
-    map.put(num, map.getOrDefault(num, 0) + 1);
-}
-```
-- 정규 표현식을 사용해 숫자만 추출한다.
-- 이후 각 숫자의 등장 횟수를 `Map` 에 저장하고, 등장 횟수 기준으로 정렬한다.
+## :black_nib: **Review**
 
-## Review
-- 아이디어는 쉽게 잡았지만 이를 구현해내는 방법이 효율적이지 않은 듯 하다.
-- 어떻게 하면 더 효율적이게 바꿀 수 있을까를 고민하다, 숫자별 등장 횟수에 포인트를 두고 얼마 전 정리한 정규 표현식이 떠올라 사용해보았다.
-  - 문자열 알고리즘에서 정규 표현식이 많이 사용된다고 했는데, 아주 잘 써먹었다.
+- 연산자에 대한 순열이 필요하다는 점은 쉽게 알았지만, 이후 계산을 구현하는데 시간을 너무 많이 썼다.
+- 아직 자바에 대한 공부가 더 필요할 것 같다. (`String`, `StringBuilder`, `ArrayList<String>` 에서 사용하는 메소드)
