@@ -1,33 +1,28 @@
 def solution(gems):
     answer = []
-    unique = dict()
-    gem_len = len(gems)
-    end = 0
+    gem_dict = dict()
+    gem_unique = len(set(gems))
     start = 0
-    tmp = 100000
+    end = 0
+    section = len(gems) + 1 # 결과 진열대 범위 (gems 길이보다 길 순 없으니까 이렇게 초기화)
 
-    gem_cnt = 0
-    for gem in gems: # 보석 종류 파악
-        if gem not in unique:
-            unique[gem] = gem_cnt
-            gem_cnt += 1
-
-    matrix = [[-1] * len(unique) for i in range(gem_len)]
-
-    for i, gem in enumerate(gems):
-        if i > 0: # 이전 기록
-            matrix[i] = matrix[i - 1]
-
-        col = unique[gem]
-        matrix[i][col] = i  # 해당 보석 위치로 인덱스 갱신
+    while end < len(gems):
+        if gems[end] not in gem_dict: # 발견 안된 보석이면 딕셔너리에 추가
+            gem_dict[gems[end]] = 1
+        else: # 이미 발견한 적 있는거면 발견 횟수 증가
+            gem_dict[gems[end]] += 1
         
-        if min(matrix[i]) != -1: # 길이 제일 짧은거로 answer 갱신
-            start = min(matrix[i])
-            end = max(matrix[i])
-            if end - start < tmp:
-                tmp = end - start
-                answer = [start + 1, end + 1]
+        end += 1 # 끝점 한칸 이동
+
+        if len(gem_dict) == gem_unique: # 보석 종류별로 다 찾았으면?
+            while start < end: # 더 짧은 범위인지 검사함
+                if gem_dict[gems[start]] > 1: # 한번보다 더 발견됐다 = 뒤에 더 있다
+                    gem_dict[gems[start]] -= 1 # 시작점 이동할 거니까 발견 값 하나 빼줌
+                    start += 1 # 시작점 한칸 이동
+                elif (end - start) < section: # 이렇게 갱신한 범위가 이전에 찾은 범위보다 작으면?
+                    section = end - start 
+                    answer = [start + 1, end] # 범위 갱신
+                    break
+                else: break
 
     return answer
-
-print(solution(["DIA", "RUBY", "RUBY", "DIA", "DIA", "EMERALD", "SAPPHIRE", "DIA"]))
