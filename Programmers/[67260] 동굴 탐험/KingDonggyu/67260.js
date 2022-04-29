@@ -49,7 +49,7 @@ function solution(n, path, order) {
       visitRoom(next);
 
       const after = afterRoom[next];
-      if (after !== null && isWaiting[after]) {
+      if (after && isWaiting[after]) {
         // wait 중인 방을 활성화
         visitRoom(after);
         isWaiting[after] = false;
