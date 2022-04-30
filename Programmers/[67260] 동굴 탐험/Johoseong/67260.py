@@ -1,5 +1,4 @@
 import sys
-from collections import defaultdict
 sys.setrecursionlimit(10 ** 6)
 
 def dfs(x):
