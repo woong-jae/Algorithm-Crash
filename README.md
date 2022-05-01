@@ -21,3 +21,4 @@
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (04.11 ~ 04.17)|[크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)|[튜플](https://programmers.co.kr/learn/courses/30/lessons/64065)||
 |**2주차**<br> (04.25 ~ 05.01)|[키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)|[수식 최대화](https://programmers.co.kr/learn/courses/30/lessons/67257)|[보석 쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258)|[경주로 건설](https://programmers.co.kr/learn/courses/30/lessons/67259)|[동굴 탐험](https://programmers.co.kr/learn/courses/30/lessons/67260)|
+|**3주차**<br> (05.02 ~ 05.08)|[숫자 문자열과 영단어](https://programmers.co.kr/learn/courses/30/lessons/81301)|[거리두기 확인하기](https://programmers.co.kr/learn/courses/30/lessons/81302)|[표 편집](https://programmers.co.kr/learn/courses/30/lessons/81303)|[미로 탈출](https://programmers.co.kr/learn/courses/30/lessons/81304)|[시험장 나누기](https://programmers.co.kr/learn/courses/30/lessons/81305)|
