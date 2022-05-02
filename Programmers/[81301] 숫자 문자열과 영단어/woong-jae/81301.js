@@ -1,6 +1,5 @@
 function solution(s) {
     const answer = [];
-    const isNum = /\d/;
     
     const getNumber = (index) => {
         const startingChar = s[index];
@@ -25,7 +24,7 @@ function solution(s) {
     let index = 0;
     while(index < s.length) {
         const char = s[index];
-        if(isNum.test(char)) {
+        if(!isNaN(char)) {
             answer.push(char);
             index++;
         }
