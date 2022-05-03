@@ -45,8 +45,8 @@ function solution(n, start, end, roads, traps) {
     const dist = Array.from(Array(n + 1), () => Array(1024).fill(Infinity));
     const trapsIdx = new Map(traps.map((trap, i) => [trap, i]));
     roads.forEach(([a, b, t]) => {
-        adjList[a].push([b, t, "ORIGIN"]);
-        adjList[b].push([a, t, "REVERSED"]);
+        adjList[a].push([b, t, 0]); // ORIGINAL
+        adjList[b].push([a, t, 1]); // REVERSED
     });
     
     const calcPressed = (pressed, next) => {
@@ -68,7 +68,7 @@ function solution(n, start, end, roads, traps) {
                 valid = !(pressed & (1 << trapsIdx.get(next)));
             }
         }
-        return state === "ORIGIN" ? valid : !valid;
+        return state === 0 ? valid : !valid;
     }
     
     const pq = new MinHeap();
