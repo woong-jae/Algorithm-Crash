@@ -79,7 +79,10 @@ private void forward(int to, int weight, int status, int f) {
 }
 ```
 
-- 정방향 탐색의 경우, `canForward` 가 `0` 인 경우만 `queue` 에 해당 지점을 추가한다.
+- 정방향 탐색의 경우, 
+  - 다음 방문할 노드의 트랩 여부를 확인하고,  
+  - 트랩인 경우, 트랩의 발동 여부를 확인한다.
+  - `canForward` 가 `0` 인 경우(즉, 트랩이지만 활성화 되지 않았거나 일반 노드인 경우)만 `queue` 에 해당 지점을 추가한다.
   - 0인 경우: (f:canForward = 0:0 or 1:1)
 - 역방향은 반대
 
