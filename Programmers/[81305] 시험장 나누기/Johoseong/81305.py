@@ -56,4 +56,4 @@ def solution(k, num, links):
         if solve(mid) <= k:
             en = mid
         else: st = mid+1    
-    return 
+    return st
