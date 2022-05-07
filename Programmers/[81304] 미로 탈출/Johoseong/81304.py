@@ -16,24 +16,23 @@ def dijkstra(n, start, end, graph, traps):
 
         for next_node, next_time, state in graph[cur_node]:
             if cur_node in traps:
-                if next_node in traps:
+                if next_node in traps: # 현재 노드랑 다음 노드 다 함정임 -> 0
                     cur_flag  = ((cur_state&(1<<trap_index[cur_node]))//(1<<trap_index[cur_node]) + (cur_state&(1<<trap_index[next_node]))//(1<<trap_index[next_node]))%2
-                else:
+                else: # 현재 노드만 함정임 -> 1
                     cur_flag = (cur_state&(1<<trap_index[cur_node]))//(1<<trap_index[cur_node])
             else:
-                if next_node in traps:
+                if next_node in traps: # 다음 노드만 함정임 -> 1
                     cur_flag = (cur_state&(1<<trap_index[next_node]))//(1<<trap_index[next_node])
-                else:
+                else: # 현재 노드랑 다음 노드 다 함정 아님 -> 0
                     cur_flag = 0
-            
         
-                if cur_flag == state:
-                    if dp[cur_state][next_node] > cur_time + next_time:
-                        dp[cur_state][next_node] = cur_time + next_time
-                        if next_node in traps:
-                            heapq.heappush(heap,(dp[cur_state][next_node], next_node, cur_state^(1<<trap_index[next_node])))
-                        else:
-                            heapq.heappush(heap,(dp[cur_state][next_node],next_node,cur_state))
+            if cur_flag == state:
+                if dp[cur_state][next_node] > cur_time + next_time:
+                    dp[cur_state][next_node] = cur_time + next_time
+                    if next_node in traps:
+                        heapq.heappush(heap,(dp[cur_state][next_node], next_node, cur_state^(1<<trap_index[next_node])))
+                    else:
+                        heapq.heappush(heap,(dp[cur_state][next_node],next_node,cur_state))
 
 def solution(n, start, end, roads, traps):
     global trap_index, dp
