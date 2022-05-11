@@ -30,7 +30,7 @@ banned_id.forEach((ban, banIndex) => {
 
 - `visited`를 업데이트하며 중복되는 값 발생 시 탐색을 멈춘다.
 
-    - 0 = 방문 x, 1 = 방문 o
+  - 0 = 방문 x, 1 = 방문 o
 
 - `banned_id.length` 만큼의 깊이 탐색이 일어났을 경우, 탐색을 멈추고 `visited` 를 문자열로 변환한 값을 set에 넣는다.
 
