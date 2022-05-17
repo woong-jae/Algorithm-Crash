@@ -6,7 +6,7 @@ def solution(m, n, board):
         flag = 0
         remove = []
 
-        for i in range(m - 1):
+        for i in range(m - 1): # 2*2 같은 블록 찾음 (나중에 지워야해서 위치 기억해둠)
             for j in range(n - 1):
                 if field[i][j] == 0:
                     continue
@@ -18,14 +18,14 @@ def solution(m, n, board):
                     remove.append([i + 1, j])
                     remove.append([i + 1, j + 1]) 
 
-        if flag == 0:
+        if flag == 0: # 지워지는 거 없음 -> 게임 종료
             break
 
-        while remove:
+        while remove: # 지움
             r, c = remove.pop()
             field[r][c] = 0
 
-        for i in range(m - 1):
+        for i in range(m - 1): # 위에 있는거 내림
             for j in range(n):
                 if field[i + 1][j] == 0 and field[i][j] != 0:
                     field[i + 1][j] = field[i][j]
@@ -36,7 +36,7 @@ def solution(m, n, board):
                         field[k][j] = 0
         # print(field)
                 
-    for i in range(m):
+    for i in range(m): # 터진거 개수 셈
         for j in range(n):
             if field[i][j] == 0:
                 answer += 1     
