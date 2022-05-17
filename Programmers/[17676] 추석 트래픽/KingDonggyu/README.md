@@ -47,7 +47,7 @@ lines.forEach((line) => {
 
 - lines를 모두 순회할 때까지 반복한다.
 
-### 시간 복잡도: O(N^2)
+### 시간 복잡도: O(NlogN)
 
 ## Review
 
