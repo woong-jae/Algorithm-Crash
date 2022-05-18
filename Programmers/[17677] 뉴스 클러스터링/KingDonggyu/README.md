@@ -9,7 +9,7 @@
 ## Logic
 
 ```js
-for (let i = 0; i < Math.max(str1.length, str2.length - 1); i++) {
+for (let i = 0; i < Math.max(str1.length, str2.length) - 1; i++) {
   if (i < str1.length - 1) {
     updateMap(str1, i, true);
   }
