@@ -21,14 +21,8 @@ def solution(lines):
         for j in range(i + 1, N): # 그 다음 로그들 중에서 겹치는거 확인함
             next_s = time[j][0]
 
-            if cur_e >= next_s: # 아예 겹침
+            if cur_e >= next_s or range_e >= next_s: # 아예 겹침 or 1초 이내
                 count += 1
-            else: # 안 겹침
-                if range_e < next_s: # 1초 범위 내에도 안들어옴
-                    continue
-                else: # 1초 범위 내에는 들어옴
-                    count += 1
-                
         answer.append(count)
 
     if answer:
