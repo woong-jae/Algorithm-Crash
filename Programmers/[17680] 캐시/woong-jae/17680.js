@@ -13,7 +13,7 @@ function solution(cacheSize, cities) {
         cache.add(city);
         answer += 5;
         if(cache.size > cacheSize) {
-            const [target] = Array.from(cache);
+            const [target] = cache.entries().next().value;
             cache.delete(target);
         }
     });
