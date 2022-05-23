@@ -6,15 +6,17 @@
 - 집합1, 집합2를 탐색하면서 교집합을 구한 후, ```합집합 = 집합1 + 집합2 - 교집합``` 연산으로 합집합 수를 구하면 됨.
 1. 문자열1, 2를 대문자로 바꾸고 2글자씩 나눠서 딕셔너리에 저장함.
 ```python
-for i in range(len(str1) - 1): # 문자열 2글자씩 끊어서 다중집합의 원소로 만듬
-    tmp = str1[i] + str1[i + 1]
-    if not tmp.isalpha(): # 공백/특수문자 있으면 버림
-        continue
-    sum += 1
-    if tmp not in set1:
-        set1[tmp] = 1
-    else:
-        set1[tmp] += 1
+def make_dict(s, set):
+    global sum
+    for i in range(len(s) - 1):
+        tmp = s[i] + s[i + 1]
+        if not tmp.isalpha():
+            continue
+        sum += 1
+        if tmp not in set:
+            set[tmp] = 1
+        else:
+            set[tmp] += 1
 ```
 - 공백/특수문자가 있는 원소는 버림.
 - 합집합 원소 수를 구하기 위해서 ```sum```에 집합1, 2 원소 수를 더함.
