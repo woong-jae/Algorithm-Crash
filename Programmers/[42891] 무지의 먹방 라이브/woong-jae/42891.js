@@ -1,10 +1,3 @@
-class Node {
-    constructor(index) {
-        this.index = index;
-        this.next = null
-    }
-}
-
 function solution(food_times, k) {
     const sorted_food_times = food_times.slice(0).sort((a, b) => a - b);
     
@@ -18,24 +11,11 @@ function solution(food_times, k) {
     }
     if(i === food_times.length) return -1;
 
-    let head = null, tail = null, reducedLength = 0;
-    food_times.map(time => time >= ate ? time - ate : 0).forEach((time, index) => {
-        if(time === 0) return;
-        reducedLength++;
-        if(!head) {
-            head = new Node(index + 1);
-            tail = head;
-        }
-        else {
-            tail.next = new Node(index + 1);
-            tail = tail.next;
-        }
+    const reduced_food_times = [];
+    food_times.forEach((time, index) => {
+        if(time <= ate) return;
+        reduced_food_times.push([time - ate, index + 1]);
     });
-    tail.next = head;
     
-    k = k % reducedLength;
-    let cur = head, prev = tail;
-    while(k--) cur = cur.next;
-    
-    return cur.index;
+    return reduced_food_times[k % reduced_food_times.length][1];
 }
