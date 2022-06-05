@@ -8,14 +8,14 @@ const Node = (function () {
 
   Node.prototype.insert = function (x, number) {
     this.x > x 
-			? this.addLeft(x, number) 
-			: this.addRight(x, number);
+      ? this.addLeft(x, number) 
+      : this.addRight(x, number);
   };
 
   Node.prototype.addLeft = function (x, number) {
     this.left 
-			? this.left.insert(x, number) 
-			: (this.left = new Node(x, number));
+      ? this.left.insert(x, number) 
+      : (this.left = new Node(x, number));
   };
 
   Node.prototype.addRight = function (x, number) {
