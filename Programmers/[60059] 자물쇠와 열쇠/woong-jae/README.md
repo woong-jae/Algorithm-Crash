@@ -4,6 +4,13 @@
 ## Logic
 `key`를 4번 회전시키면서 자물쇠를 채울 수 있는지 확인한다.
 
+```js
+for(let spin = 0; spin < 4; spin++) {
+    key = spinClockWise(key);
+    if(canOpen(key)) return true;
+}
+```
+
 자물쇠를 채울 수 있는지 확인할 때는 '키의 우측 하단을 자물쇠의 왼쪽 상단'부터 시작해서 '키의 좌측 상단이 자물쇠의 우측 하단'까지 움직이며 확인한다.
 키의 왼쪽 상단을 기준으로 했다.
 
