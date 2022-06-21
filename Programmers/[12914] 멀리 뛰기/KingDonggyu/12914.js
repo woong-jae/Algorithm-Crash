@@ -2,7 +2,7 @@ function solution(n) {
   const dp = [null, 1, 2];
 
   if (n <= 2) {
-    return dp[n] % 1234567;
+    return dp[n];
   }
 
   for (let x = 3; x <= n; x++) {
