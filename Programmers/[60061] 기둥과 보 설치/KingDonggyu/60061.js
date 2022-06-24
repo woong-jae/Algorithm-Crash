@@ -8,12 +8,10 @@ function solution(n, build_frame) {
     if (!y) {
       return true;
     }
-
     // 기둥 위
     if (y > 0 && wall[x][y - 1][0]) {
       return true;
     }
-
     // 보 위
     if (
       wall[x][y][1] || 
@@ -31,7 +29,6 @@ function solution(n, build_frame) {
     ) {
       return true;
     }
-
     // 보 사이
     if (
       x > 0 && wall[x - 1][y][1] && 
@@ -56,33 +53,18 @@ function solution(n, build_frame) {
   };
 
   build_frame.forEach(([x, y, a, b]) => {
-    if (!a) {
-      //기둥 삭제
-      if (!b) {
-        wall[x][y][0] = false;
-        if (!checkDelete()) {
-          wall[x][y][0] = true;
-        }
-        return;
-      }
-      // 기둥 설치
-      if (checkPillar(x, y)) {
-        wall[x][y][0] = true;
+    if (!b) {
+      wall[x][y][a] = false;
+      if (!checkDelete()) {
+        wall[x][y][a] = true;
       }
       return;
     }
 
-    // 보 삭제
-    if (!b) {
-      wall[x][y][1] = false;
-      if (!checkDelete()) {
-        wall[x][y][1] = true;
-      }
-      return;
-    }
-    // 보 설치
-    if (checkBeam(x, y)) {
-      wall[x][y][1] = true;
+    const install = a ? checkBeam(x, y) : checkPillar(x, y);
+
+    if (install) {
+      wall[x][y][a] = true;
     }
   });
 
@@ -90,12 +72,8 @@ function solution(n, build_frame) {
 
   for (let x = 0; x < n + 1; x++) {
     for (let y = 0; y < n + 1; y++) {
-      if (wall[x][y][0]) {
-        answer.push([x, y, 0]);
-      }
-      if (wall[x][y][1]) {
-        answer.push([x, y, 1]);
-      }
+      wall[x][y][0] && answer.push([x, y, 0]);
+      wall[x][y][1] && answer.push([x, y, 1]);
     }
   }
 
