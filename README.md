@@ -17,6 +17,9 @@
 - 질문이 달린다면 무조건 답변 작성
 
 ## 📝 주차별 문제
+
+<details><summary>1주차 ~ 10주차 문제 확인</summary>
+
 |주차|1|2|3|4|5|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**1주차**<br> (04.11 ~ 04.17)|[크레인 인형뽑기 게임](https://programmers.co.kr/learn/courses/30/lessons/64061)|[튜플](https://programmers.co.kr/learn/courses/30/lessons/64065)||
@@ -29,3 +32,9 @@
 |**8주차**<br> (06.06 ~ 06.12)|[실패율](https://programmers.co.kr/learn/courses/30/lessons/42889)|[오픈채팅방](https://programmers.co.kr/learn/courses/30/lessons/42888)|[문자열 압축](https://programmers.co.kr/learn/courses/30/lessons/60057)|[괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058)|[자물쇠와 열쇠](https://programmers.co.kr/learn/courses/30/lessons/60059)|
 |**9주차**<br> (06.20 ~ 06.26)|[멀리 뛰기](https://programmers.co.kr/learn/courses/30/lessons/12914)|[가사 검색](https://programmers.co.kr/learn/courses/30/lessons/60060)|[기둥과 보 설치](https://programmers.co.kr/learn/courses/30/lessons/60061)|[외벽 점검](https://programmers.co.kr/learn/courses/30/lessons/60062)|[블록 이동하기](https://programmers.co.kr/learn/courses/30/lessons/60063)|
 |**10주차**<br> (06.27 ~ 07.03)|[신규 아이디 추천](https://programmers.co.kr/learn/courses/30/lessons/72410)|[메뉴 리뉴얼](https://programmers.co.kr/learn/courses/30/lessons/72411)|[순위 검색](https://programmers.co.kr/learn/courses/30/lessons/72412)|[합승 택시 요금](https://programmers.co.kr/learn/courses/30/lessons/72413)|[광고 삽입](https://programmers.co.kr/learn/courses/30/lessons/72414)|
+
+</details>
+
+|주차|1|2|3|4|5|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|**11주차**<br> (07.04 ~ 07.10)|[카드 짝 맞추기](https://programmers.co.kr/learn/courses/30/lessons/72415)|[매출 하락 최소화](https://programmers.co.kr/learn/courses/30/lessons/72416)|[신고 결과 받기](https://programmers.co.kr/learn/courses/30/lessons/92334)|[k진수에서 소수 개수 구하기](https://programmers.co.kr/learn/courses/30/lessons/92335)|[주차 요금 계산](https://programmers.co.kr/learn/courses/30/lessons/92341)|
