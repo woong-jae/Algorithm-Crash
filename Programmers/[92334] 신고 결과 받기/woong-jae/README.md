@@ -28,3 +28,5 @@ return Array.from(reported).map(([_, reports]) => {
     return message;
 });
 ```
+## Review
+쉬운 문제.
