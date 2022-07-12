@@ -2,7 +2,7 @@
 
 ## Algorithm
 
-- Brute Force (중복 순열)
+- Brute Force (중복 조합)
 
 ## Logic
 
