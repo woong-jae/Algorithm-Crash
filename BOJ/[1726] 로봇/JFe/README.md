@@ -1,6 +1,11 @@
-import sys
-from collections import deque
+# [1726] 로봇 - Python
 
+## 🔍 Algorithm
+**BFS**
+
+## 💻 Logic
+
+```Python
 def bfs(x, y, d):
     visited[y][x][d] = True
     q = deque([(x, y, d, 0)])
@@ -22,14 +27,14 @@ def bfs(x, y, d):
                 visited[y][x][next_d] = True
                 q.append((x, y, next_d, v + 1))
     return -1
+```
+- **BFS 탐색**  
+    - 마지막 위치, 방향과 맞으면 return  
+    - 1, 2 또는 3만큼 반복문을 이용해 이동  
+    - boundary 체크해서 벗어나면 break / 방문하지 않았으면 append  
+    - 앞서 선언해둔 rotate를 이용해 방향 변경  
 
-M, N = map(int,sys.stdin.readline().split())
-field = [[int(x) for x in sys.stdin.readline().split()] for _ in range(M)]
-visited = [[[False for _ in range(4)] for _ in range(N)] for _ in range(M)]
-start_y, start_x, start_d = map(int, sys.stdin.readline().split())
-end_y, end_x, end_d = map(int, sys.stdin.readline().split())
-dx = [1, -1, 0, 0]
-dy = [0, 0, 1, -1]
-rotate = {0: [2, 3], 1: [2, 3], 2: [0, 1], 3: [0, 1]}
 
-print(bfs(start_x - 1, start_y - 1, start_d - 1))
+## 📝 Review
+
+계속 인덱스 에러가 나서 멘탈 나갔는데 입력을 잘못 받았었다... 백준 싫어할 것,,,
