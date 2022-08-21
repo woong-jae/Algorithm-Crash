@@ -9,7 +9,7 @@
 for i in range(1, 4): # 텔레포트 이용하는 경우의 수
     permuts.append(list(permutations([0, 1, 2], i)))
 ```
-2. 각 경우에 대해 걸리는 시간을 DFS로 구함. DFS를 하는 이유는, 한 텔레포트 안에서 또 들어오고->나오고 이용 순서를 2개로 나눌 수 있어서, 이를 편하게 계산하려고 DFS를 사용함
+2. 각 경우에 대해 걸리는 시간을 DFS로 구함
 - 텔레포트를 이용하는 경우엔 거리와 상관없이 10초임에 유의
 ```python
 def calculate(ports, permut, index, num, dist):
