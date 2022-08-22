@@ -19,9 +19,9 @@ def bfs(start, end):
             n_r = c_r + D[c_d][0] * s
             n_c = c_c + D[c_d][1] * s
             n_d = c_d
-            if not (0 <= n_r < M and 0 <= n_c < N) or matrix[n_r][n_c] == 1: continue
+            if not (0 <= n_r < M and 0 <= n_c < N) or matrix[n_r][n_c] == 1: break
             if visited[n_r][n_c][n_d] == 1: continue
-            que.append([n_r, n_c, n_d, c_cnt + s])
+            que.append([n_r, n_c, n_d, c_cnt + 1])
             visited[n_r][n_c][n_d] = 1
 
         for n_d in range(4):
