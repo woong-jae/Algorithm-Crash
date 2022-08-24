@@ -1,25 +1,15 @@
 function solution(n) {
-  return _solution(0, n, n);
+  return _solution(n, n);
 }
 
-function _solution(v, open, close) {
-  if (!open && !close) {
+function _solution(open, close) {
+  if (!open) {
     return 1;
   }
 
-  if (v < 0) {
+  if (close < open) {
     return 0;
   }
 
-  let result = 0;
-
-  if (open > 0) {
-    result += _solution(v + 1, open - 1, close);
-  }
-
-  if (close > 0) {
-    result += _solution(v - 1, open, close - 1);
-  }
-
-  return result;
+  return _solution(open - 1, close) + _solution(open, close - 1);
 }
