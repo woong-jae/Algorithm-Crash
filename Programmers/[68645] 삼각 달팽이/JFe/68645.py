@@ -15,5 +15,6 @@ def solution(n):
     # field 값이 0이 아닌 경우만 순서대로 출력
     for i in range(n):
         for j in range(n):
-            if field[i][j] != 0: answer.append(field[i][j])
+            if field[i][j] == 0: break
+            answer.append(field[i][j])
     return answer
