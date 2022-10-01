@@ -2,7 +2,7 @@ import sys
 
 N = int(sys.stdin.readline())
 house = [[int(x) for x in sys.stdin.readline().split()] for _ in range(N)]
-dp = [[0 for _ in range(N)]for _ in range(N)]
+dp = [[0 for _ in range(3)]for _ in range(N)]
 
 for i in range(3):
     dp[0][i] = house[0][i]
