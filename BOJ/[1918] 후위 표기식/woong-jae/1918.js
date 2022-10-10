@@ -25,47 +25,32 @@ function solution() {
     ]);
 
     const changeToPostorder = inorder => {
+        const result = [];
+
         const stack = [];
-        let last_priority = 0;
-        for (let i = 0; i < inorder.length; i++) {
-            const char = inorder[i];
-            if (alphabet_regex.test(char)) {
+        for (const char of inorder) {
+            if (alphabet_regex.test(char) || char === "(") {
                 stack.push(char);
                 continue;
             }
 
-            if (last_priority < priority.get(char) || char === "(") {
-                stack.push(char);
-                last_priority = priority.get(char);
-                continue;
-            }
+            while (stack.length) {
+                const top = stack.length - 1;
+                if (priority.get(stack[top]) < priority.get(char)) break;
 
-            while (stack.length > 1) {
-                const operand2 = stack.pop();
-                const operator = stack.pop();
-                if (operator === "(") {
-                    stack.push(operand2);
-                    break;
-                };
-                if (priority.get(operator) < priority.get(char)) {
-                    stack.push(operator, operand2);
-                    break;
-                }
-                const operand1 = stack.pop();
-                stack.push(`${operand1}${operand2}${operator}`);
+                const temp = stack.pop();
+                if (temp === "(") break;
+
+                result.push(temp);
             }
             if (char !== ")") stack.push(char);
-            last_priority = priority.get(char);
         }
 
-        while (stack.length > 1) {
-            const operand2 = stack.pop();
-            const operator = stack.pop();
-            const operand1 = stack.pop();
-            stack.push(`${operand1}${operand2}${operator}`);
+        while (stack.length) {
+            result.push(stack.pop());
         }
 
-        return stack[0];
+        return result.join("");
     }
 
     return changeToPostorder(inorder);
